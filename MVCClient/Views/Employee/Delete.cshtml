@@ -1,0 +1,28 @@
+﻿@model MVCClient.Models.Employee
+
+@{
+    ViewData["Title"] = "Delete Employee";
+}
+<div>
+    <h4>Delete Employee</h4>
+    <hr />
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" action="Delete">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <div class="form-group mb-2">
+                <label>Name</label>
+                <input type="text" class="form-control" name="Name" placeholder="Name" value="@Model.Name" required readonly>
+            </div>
+            <div class="form-group mb-5">
+                <label>Salary</label>
+                <input type="text" class="form-control" name="Salary" placeholder="Salary" value="@Model.Salary" required readonly>
+            </div>
+            <input class="btn btn-success" type="submit" value="Delete Employee">
+            @Html.ActionLink("Back to List", "Index", "Employee", null, new { @class = "btn btn-info" })
+        </form>
+    </div>
+</div>
+

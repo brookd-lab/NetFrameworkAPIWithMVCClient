@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MVCClient.Models.Employee>
+
+@{
+    ViewData["Title"] = "Employee List";
+}
+<h2>Employee List</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Salary)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => employee.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => employee.Salary)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Update", "Update", new { employee.Id })
+                        @Html.ActionLink("Details", "Details", new { employee.Id })
+                        @Html.ActionLink("Delete", "Delete", new { employee.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
+

@@ -1,0 +1,29 @@
+﻿@model MVCClient.Models.Employee
+
+@{
+    ViewData["Title"] = "Update Employee";
+}
+<div>
+    <h4>Update Employee</h4>
+    <hr />
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" asp-action="Update">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <div class="form-group mb-2">
+                <label>Name</label>
+                <input type="text" class="form-control" name="Name" placeholder="Name" value="@Model.Name" required>
+            </div>
+            <div class="form-group mb-5">
+                <label>Salary</label>
+                <input type="text" class="form-control" name="Salary" placeholder="Salary" value="@Model.Salary" required>
+            </div>
+            <br />
+            <input class="btn btn-success" type="submit" value="Update Employee">
+            @Html.ActionLink("Back to List", "Index", "Employee", null, new { @class = "btn btn-info" })
+        </form>
+    </div>
+</div>
+

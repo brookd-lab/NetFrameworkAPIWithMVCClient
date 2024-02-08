@@ -1,0 +1,26 @@
+﻿@model MVCClient.Models.Employee
+
+@{
+    ViewData["Title"] = "Employee Details";
+}
+
+<h4>Employee Details</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form>
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <div class="form-group mb-2">
+                <label>Name</label>
+                <input type="text" class="form-control" name="Name" placeholder="Name" value="@Model.Name" required readonly>
+            </div>
+            <div class="form-group mb-5">
+                <label>Salary</label>
+                <input type="text" class="form-control" name="Salary" placeholder="Salary" value="@Model.Salary" required readonly>
+            </div>
+            <br />
+            @Html.ActionLink("Update", "Update", "Employee", new { Model.Id }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Back to List", "Index", "Employee", null, new { @class = "btn btn-primary" })
+        </form>
+    </div>
+</div>
